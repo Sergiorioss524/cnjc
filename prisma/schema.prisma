@@ -1,0 +1,45 @@
+// Prisma schema — CNJ Bolivia
+// Cambia el provider a "postgresql" o "mysql" cuando conectes una BD real;
+// por ahora usa SQLite (archivo local) para que el proyecto corra sin
+// necesitar un servidor de base de datos.
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Postulacion {
+    id        String @id @default(cuid())
+    categoria String
+
+    // Campos comunes
+    nombre    String
+    email     String
+    telefono  String
+    ciudad    String
+
+    // Campos específicos de "Emprendedor" (null si no aplica)
+    empresa      String?
+    nit          String?
+    antiguedad   String?
+
+    // Campos específicos de "Profesional" (null si no aplica)
+    profesion    String?
+    experiencia  Int?
+
+    // Campos específicos de "Universitario" (null si no aplica)
+    universidad  String?
+    carrera      String?
+    semestre     String?
+
+    estado    String   @default("PENDIENTE")
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([email])
+    @@index([categoria])
+}
