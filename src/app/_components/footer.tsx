@@ -1,11 +1,17 @@
-import { BrandMark } from "./brand-mark";
+import Image from "next/image";
 
 export function Footer() {
   return (
     <footer className="mx-auto max-w-wrap px-5 pb-10 pt-14 md:px-16">
       <div className="grid grid-cols-1 gap-10 border-b border-paper-line pb-9 md:grid-cols-[1.3fr_1fr_1fr] md:gap-10">
         <div className="flex items-start gap-3">
-          <BrandMark className="mt-0.5 h-8 w-8 flex-shrink-0" />
+          <Image
+            src="/logo.png"
+            alt="CNJ"
+            width={32}
+            height={32}
+            className="mt-0.5 h-8 w-8 flex-shrink-0 rounded-lg"
+          />
           <div>
             <strong className="font-display text-[1.1rem] font-semibold">
               Cámara Nacional de Juventud

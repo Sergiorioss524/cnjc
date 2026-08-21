@@ -1,6 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-
-import { BrandMark } from "./brand-mark";
 
 const links = [
   { href: "#nosotros", label: "Nosotros" },
@@ -18,7 +17,13 @@ export function Header() {
           href="#top"
           className="flex items-center gap-3 text-ink no-underline"
         >
-          <BrandMark />
+          <Image
+            src="/logo.png"
+            alt="CNJ"
+            width={36}
+            height={36}
+            className="h-9 w-9 flex-shrink-0 rounded-lg"
+          />
           <span className="leading-tight">
             <strong className="block font-display text-[1.02rem] font-semibold tracking-tight">
               Cámara Nacional de Juventud

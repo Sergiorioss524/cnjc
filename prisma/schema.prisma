@@ -1,14 +1,13 @@
 // Prisma schema — CNJ Bolivia
-// Cambia el provider a "postgresql" o "mysql" cuando conectes una BD real;
-// por ahora usa SQLite (archivo local) para que el proyecto corra sin
-// necesitar un servidor de base de datos.
+// Usa Postgres (ej. Neon, Vercel Postgres o Supabase) para que la app
+// funcione en Vercel, cuyo filesystem serverless no puede alojar SQLite.
 
 generator client {
     provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
