@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 /**
  * Esquema base compartido por las tres categorías de postulación.
@@ -45,8 +49,8 @@ export const postulacionRouter = createTRPCRouter({
       });
     }),
 
-  /** Lista las postulaciones más recientes — útil para un panel interno. */
-  getRecent: publicProcedure.query(async ({ ctx }) => {
+  /** Lista las postulaciones más recientes — solo para el backoffice. */
+  getRecent: protectedProcedure.query(async ({ ctx }) => {
     return ctx.db.postulacion.findMany({
       orderBy: { createdAt: "desc" },
       take: 50,

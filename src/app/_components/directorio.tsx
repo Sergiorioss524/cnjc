@@ -1,12 +1,10 @@
-const roster = [
-  { num: "01", name: "Eduardo Larsen", role: "Presidente" },
-  { num: "02", name: "Ignacio Velásquez", role: "Primer Vicepresidente" },
-  { num: "03", name: "Mateo Rejas", role: "Segundo Vicepresidente" },
-  { num: "04", name: "Robert Jalil", role: "Tesorero" },
-  { num: "05", name: "Zoe Cabrera", role: "Vocal" },
-];
+import { db } from "~/server/db";
 
-export function Directorio() {
+export async function Directorio() {
+  const members = await db.directorioMember.findMany({
+    orderBy: [{ order: "asc" }, { createdAt: "asc" }],
+  });
+
   return (
     <section
       id="directorio"
@@ -29,13 +27,13 @@ export function Directorio() {
         </div>
 
         <div className="border-t border-paper-line">
-          {roster.map((r) => (
+          {members.map((r, i) => (
             <div
-              key={r.num}
+              key={r.id}
               className="grid grid-cols-[2.4rem_1fr] items-baseline gap-5 border-b border-paper-line py-5 sm:grid-cols-[3.5rem_1fr_1fr]"
             >
               <span className="font-mono text-[0.85rem] text-ink-faint">
-                {r.num}
+                {String(i + 1).padStart(2, "0")}
               </span>
               <span className="font-display text-[1.15rem] font-medium">
                 {r.name}

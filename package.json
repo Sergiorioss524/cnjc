@@ -12,6 +12,7 @@
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "db:generate": "prisma generate",
+    "db:seed": "tsx --env-file=.env prisma/seed.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -21,7 +22,9 @@
     "@trpc/client": "^11.0.0",
     "@trpc/react-query": "^11.0.0",
     "@trpc/server": "^11.0.0",
+    "bcryptjs": "^3.0.3",
     "next": "^14.2.15",
+    "next-auth": "5.0.0-beta.32",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "superjson": "^2.2.1",
@@ -38,6 +41,7 @@
     "postcss": "^8.4.47",
     "prisma": "^5.20.0",
     "tailwindcss": "^3.4.13",
+    "tsx": "^4.23.12",
     "typescript": "^5.6.2"
   }
 }

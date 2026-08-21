@@ -1,22 +1,10 @@
-const items = [
-  {
-    date: "29 · 07 · 2026",
-    title: "Lanzamiento oficial",
-    body: "La CNJ se presenta públicamente en el Hotel Los Tajibos, Santa Cruz de la Sierra, ante representantes del sector privado y la prensa nacional.",
-  },
-  {
-    date: "Vinculación institucional",
-    title: "Respaldo de la Cámara Nacional de Comercio",
-    body: "La CNJ nace bajo el paraguas de la CNC, que le otorga estructura, respaldo institucional y una red preexistente de aliados empresariales.",
-  },
-  {
-    date: "Presente",
-    title: "Postulación abierta",
-    body: "El Directorio Fundador abre la primera convocatoria de afiliación a jóvenes de La Paz, Santa Cruz y Cochabamba.",
-  },
-];
+import { db } from "~/server/db";
 
-export function Timeline() {
+export async function Timeline() {
+  const items = await db.hito.findMany({
+    orderBy: [{ order: "asc" }, { createdAt: "asc" }],
+  });
+
   return (
     <section
       id="hitos"
@@ -35,7 +23,7 @@ export function Timeline() {
         <div className="relative pl-7 before:absolute before:bottom-1.5 before:left-[5px] before:top-1.5 before:w-px before:bg-paper-line">
           {items.map((it, i) => (
             <div
-              key={it.title}
+              key={it.id}
               className={`relative ${i === items.length - 1 ? "" : "pb-9"}`}
             >
               <span className="absolute -left-7 top-1.5 h-2.5 w-2.5 rounded-full bg-accent ring-1 ring-paper-line" />

@@ -11,6 +11,50 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model User {
+    id           String   @id @default(cuid())
+    email        String   @unique
+    passwordHash String
+    name         String?
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+}
+
+model Evento {
+    id        String   @id @default(cuid())
+    title     String
+    date      String
+    place     String
+    order     Int      @default(0)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([order])
+}
+
+model DirectorioMember {
+    id        String   @id @default(cuid())
+    name      String
+    role      String
+    order     Int      @default(0)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([order])
+}
+
+model Hito {
+    id        String   @id @default(cuid())
+    date      String
+    title     String
+    body      String
+    order     Int      @default(0)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([order])
+}
+
 model Postulacion {
     id        String @id @default(cuid())
     categoria String
