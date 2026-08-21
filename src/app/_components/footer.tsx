@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -50,7 +51,12 @@ export function Footer() {
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2.5 pt-6 font-mono text-[0.78rem] text-ink-faint">
         <span>© 2026 Cámara Nacional de Juventud — Bolivia</span>
-        <span>Datos entre [ ] son placeholder — reemplázalos</span>
+        <span className="flex items-center gap-4">
+          Datos entre [ ] son placeholder — reemplázalos
+          <Link href="/admin/login" className="text-ink-faint no-underline hover:text-ink">
+            Admin
+          </Link>
+        </span>
       </div>
     </footer>
   );
