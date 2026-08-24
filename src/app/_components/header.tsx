@@ -9,7 +9,6 @@ const links = [
   { href: "/#directorio", label: "Directorio" },
   { href: "/miembros", label: "Miembros" },
   { href: "/#hitos", label: "Hitos" },
-  { href: "/#postulacion", label: "Postulación" },
 ];
 
 export function Header() {
