@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { initials } from "~/lib/initials";
 import { api, type RouterOutputs } from "~/trpc/react";
 
 type Miembro = RouterOutputs["miembro"]["list"][number];
@@ -13,6 +14,7 @@ const emptyForm = {
   name: "",
   categoria: "EMPRENDEDOR" as (typeof categorias)[number],
   ciudad: "" as (typeof ciudades)[number] | "",
+  fotoUrl: "",
   order: 0,
 };
 
@@ -48,6 +50,7 @@ export function MiembrosManager({ initial }: { initial: Miembro[] }) {
       name: m.name,
       categoria: m.categoria as (typeof categorias)[number],
       ciudad: (m.ciudad ?? "") as (typeof ciudades)[number] | "",
+      fotoUrl: m.fotoUrl ?? "",
       order: m.order,
     });
   };
@@ -129,6 +132,12 @@ export function MiembrosManager({ initial }: { initial: Miembro[] }) {
           }
           className="rounded-sm border border-paper-line bg-paper px-3.5 py-2.5 text-[0.9rem] focus:border-accent"
         />
+        <input
+          placeholder="URL de foto (opcional)"
+          value={form.fotoUrl}
+          onChange={(e) => setForm({ ...form, fotoUrl: e.target.value })}
+          className="rounded-sm border border-paper-line bg-paper px-3.5 py-2.5 text-[0.9rem] focus:border-accent"
+        />
         <div className="flex gap-3 sm:col-span-2">
           <button
             type="submit"
@@ -155,12 +164,26 @@ export function MiembrosManager({ initial }: { initial: Miembro[] }) {
             key={m.id}
             className="flex flex-wrap items-center justify-between gap-3 border-b border-paper-line py-4"
           >
-            <div>
-              <p className="font-display font-semibold">{m.name}</p>
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.05em] text-ink-soft">
-                {m.categoria}
-                {m.ciudad ? ` · ${m.ciudad}` : ""}
-              </p>
+            <div className="flex items-center gap-3.5">
+              {m.fotoUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={m.fotoUrl}
+                  alt={m.name}
+                  className="h-9 w-9 flex-shrink-0 rounded-full object-cover"
+                />
+              ) : (
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-paper-raised font-mono text-[0.75rem] text-ink-faint">
+                  {initials(m.name)}
+                </span>
+              )}
+              <div>
+                <p className="font-display font-semibold">{m.name}</p>
+                <p className="font-mono text-[0.72rem] uppercase tracking-[0.05em] text-ink-soft">
+                  {m.categoria}
+                  {m.ciudad ? ` · ${m.ciudad}` : ""}
+                </p>
+              </div>
             </div>
             <div className="flex gap-3">
               <button

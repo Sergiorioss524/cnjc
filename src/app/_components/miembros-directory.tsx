@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 
+import { initials } from "~/lib/initials";
 import { type RouterOutputs } from "~/trpc/react";
 
 type Miembro = RouterOutputs["miembro"]["list"][number];
@@ -60,14 +61,31 @@ export function MiembrosDirectory({ miembros }: { miembros: Miembro[] }) {
       </div>
 
       {filtered.length > 0 ? (
-        <div className="mt-9 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((m) => (
-            <div key={m.id} className="border-b border-paper-line pb-4">
-              <p className="font-display font-medium">{m.name}</p>
-              <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.05em] text-ink-soft">
-                {categoriaLabel[m.categoria] ?? m.categoria}
-                {m.ciudad ? ` · ${m.ciudad}` : ""}
-              </p>
+            <div
+              key={m.id}
+              className="flex items-center gap-3.5 border-b border-paper-line pb-5"
+            >
+              {m.fotoUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={m.fotoUrl}
+                  alt={m.name}
+                  className="h-12 w-12 flex-shrink-0 rounded-full object-cover"
+                />
+              ) : (
+                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-paper-raised font-display text-[0.95rem] font-medium text-ink-faint">
+                  {initials(m.name)}
+                </span>
+              )}
+              <div>
+                <p className="font-display font-medium">{m.name}</p>
+                <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.05em] text-ink-soft">
+                  {categoriaLabel[m.categoria] ?? m.categoria}
+                  {m.ciudad ? ` · ${m.ciudad}` : ""}
+                </p>
+              </div>
             </div>
           ))}
         </div>

@@ -13,6 +13,10 @@ const miembroInput = {
     .union([z.enum(["La Paz", "Santa Cruz", "Cochabamba", "Otra"]), z.literal("")])
     .optional()
     .transform((v) => (v ? v : undefined)),
+  fotoUrl: z
+    .union([z.string().url("Ingresa una URL de imagen válida"), z.literal("")])
+    .optional()
+    .transform((v) => (v ? v : undefined)),
   order: z.coerce.number().int().default(0),
 };
 

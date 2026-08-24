@@ -72,6 +72,7 @@ model Miembro {
     name      String
     categoria String
     ciudad    String?
+    fotoUrl   String?
     order     Int      @default(0)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
