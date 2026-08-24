@@ -1,13 +1,18 @@
 import { About } from "~/app/_components/about";
 import { Articles } from "~/app/_components/articles";
 import { Audience } from "~/app/_components/audience";
-import { Comunidad } from "~/app/_components/comunidad";
 import { Directorio } from "~/app/_components/directorio";
 import { Footer } from "~/app/_components/footer";
 import { Header } from "~/app/_components/header";
 import { Hero } from "~/app/_components/hero";
+import { Partners } from "~/app/_components/partners";
 import { PostulacionForm } from "~/app/_components/postulacion-form";
 import { Timeline } from "~/app/_components/timeline";
+
+// Las secciones leen directo de Prisma (sin fetch()), así que Next no las
+// detecta como dinámicas por sí solo — sin esto, la página quedaría
+// estática con los datos del build y no reflejaría ediciones del backoffice.
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
@@ -19,7 +24,7 @@ export default function Home() {
         <Articles />
         <Audience />
         <Directorio />
-        <Comunidad />
+        <Partners />
         <Timeline />
 
         <section id="postulacion" className="py-14 md:py-20">

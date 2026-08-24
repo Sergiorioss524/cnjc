@@ -2,12 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const links = [
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#articulos", label: "Beneficios" },
-  { href: "#directorio", label: "Directorio" },
-  { href: "#comunidad", label: "Comunidad" },
-  { href: "#hitos", label: "Hitos" },
-  { href: "#postulacion", label: "Postulación" },
+  { href: "/#nosotros", label: "Nosotros" },
+  { href: "/#articulos", label: "Beneficios" },
+  { href: "/#directorio", label: "Directorio" },
+  { href: "/#hitos", label: "Hitos" },
+  { href: "/#postulacion", label: "Postulación" },
 ];
 
 export function Header() {
@@ -15,7 +14,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-paper-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-wrap items-center justify-between gap-6 px-5 py-4 md:px-16">
         <Link
-          href="#top"
+          href="/#top"
           className="flex items-center gap-3 text-ink no-underline"
         >
           <Image
@@ -52,7 +51,7 @@ export function Header() {
         </nav>
 
         <a
-          href="#postulacion"
+          href="/#postulacion"
           className="whitespace-nowrap rounded-sm border border-accent bg-accent px-4 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent-ink no-underline transition-opacity hover:opacity-85"
         >
           Postularme

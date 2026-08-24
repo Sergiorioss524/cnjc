@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { db } from "~/server/db";
 
 export async function Directorio() {
@@ -44,6 +46,13 @@ export async function Directorio() {
             </div>
           ))}
         </div>
+
+        <Link
+          href="/miembros"
+          className="mt-7 inline-flex items-center gap-2 font-mono text-[0.78rem] uppercase tracking-[0.05em] text-accent no-underline hover:opacity-80"
+        >
+          Ver el directorio completo de miembros →
+        </Link>
       </div>
     </section>
   );
