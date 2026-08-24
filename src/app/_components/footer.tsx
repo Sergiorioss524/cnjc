@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { SocialLinks } from "~/app/_components/social-links";
+
 export function Footer() {
   return (
     <footer className="mx-auto max-w-wrap px-5 pb-10 pt-14 md:px-16">
@@ -22,6 +24,7 @@ export function Footer() {
               Bolivia. Fundada el 29 de julio de 2026 en Santa Cruz de la
               Sierra.
             </p>
+            <SocialLinks className="mt-4" />
           </div>
         </div>
         <div>
@@ -44,8 +47,6 @@ export function Footer() {
             [correo@cnj.org.bo]
             <br />
             [+591 000 00000]
-            <br />
-            Instagram — [@cnjbolivia]
           </div>
         </div>
       </div>

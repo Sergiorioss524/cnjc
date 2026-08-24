@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { SocialLinks } from "~/app/_components/social-links";
+
 const links = [
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#articulos", label: "Beneficios" },
@@ -51,12 +53,15 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href="/#postulacion"
-          className="whitespace-nowrap rounded-sm border border-accent bg-accent px-4 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent-ink no-underline transition-opacity hover:opacity-85"
-        >
-          Postularme
-        </a>
+        <div className="flex items-center gap-5">
+          <a
+            href="/#postulacion"
+            className="whitespace-nowrap rounded-sm border border-accent bg-accent px-4 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent-ink no-underline transition-opacity hover:opacity-85"
+          >
+            Postularme
+          </a>
+          <SocialLinks className="hidden lg:flex" />
+        </div>
       </div>
     </header>
   );
