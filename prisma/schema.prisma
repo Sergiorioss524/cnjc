@@ -55,6 +55,30 @@ model Hito {
     @@index([order])
 }
 
+model Partner {
+    id         String   @id @default(cuid())
+    name       String
+    logoUrl    String
+    websiteUrl String?
+    order      Int      @default(0)
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+
+    @@index([order])
+}
+
+model Miembro {
+    id        String   @id @default(cuid())
+    name      String
+    categoria String
+    ciudad    String?
+    order     Int      @default(0)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([order])
+}
+
 model Postulacion {
     id        String @id @default(cuid())
     categoria String

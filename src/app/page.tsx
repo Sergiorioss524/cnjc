@@ -1,6 +1,7 @@
 import { About } from "~/app/_components/about";
 import { Articles } from "~/app/_components/articles";
 import { Audience } from "~/app/_components/audience";
+import { Comunidad } from "~/app/_components/comunidad";
 import { Directorio } from "~/app/_components/directorio";
 import { Footer } from "~/app/_components/footer";
 import { Header } from "~/app/_components/header";
@@ -18,6 +19,7 @@ export default function Home() {
         <Articles />
         <Audience />
         <Directorio />
+        <Comunidad />
         <Timeline />
 
         <section id="postulacion" className="py-14 md:py-20">

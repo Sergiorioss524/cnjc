@@ -16,6 +16,16 @@ const sections = [
     label: "Hitos",
     body: "Línea de tiempo de hitos fundacionales de la portada.",
   },
+  {
+    href: "/admin/partners",
+    label: "Partners",
+    body: "Logos del carrusel de partners en la sección Comunidad.",
+  },
+  {
+    href: "/admin/miembros",
+    label: "Miembros",
+    body: "Directorio completo de miembros afiliados.",
+  },
 ];
 
 export default function AdminDashboard() {

@@ -8,6 +8,8 @@ const links = [
   { href: "/admin/eventos", label: "Eventos" },
   { href: "/admin/directorio", label: "Directorio" },
   { href: "/admin/hitos", label: "Hitos" },
+  { href: "/admin/partners", label: "Partners" },
+  { href: "/admin/miembros", label: "Miembros" },
 ];
 
 export default async function AdminLayout({
