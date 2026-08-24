@@ -40,9 +40,12 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <h4 className="mb-3.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-ink-faint">
-            Contacto
-          </h4>
+          <Link
+            href="/contacto"
+            className="mb-3.5 block font-mono text-[0.68rem] uppercase tracking-[0.1em] text-ink-faint no-underline hover:text-ink"
+          >
+            Contacto →
+          </Link>
           <div className="text-[0.9rem] leading-[1.9] text-ink-soft">
             [correo@cnj.org.bo]
             <br />

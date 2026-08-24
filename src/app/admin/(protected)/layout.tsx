@@ -10,6 +10,7 @@ const links = [
   { href: "/admin/hitos", label: "Hitos" },
   { href: "/admin/partners", label: "Partners" },
   { href: "/admin/miembros", label: "Miembros" },
+  { href: "/admin/mensajes", label: "Mensajes" },
 ];
 
 export default async function AdminLayout({

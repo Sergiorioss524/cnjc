@@ -80,6 +80,16 @@ model Miembro {
     @@index([order])
 }
 
+model Mensaje {
+    id        String   @id @default(cuid())
+    nombre    String
+    email     String
+    mensaje   String
+    createdAt DateTime @default(now())
+
+    @@index([email])
+}
+
 model Postulacion {
     id        String @id @default(cuid())
     categoria String

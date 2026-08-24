@@ -1,3 +1,4 @@
+import { contactoRouter } from "~/server/api/routers/contacto";
 import { directorioRouter } from "~/server/api/routers/directorio";
 import { eventoRouter } from "~/server/api/routers/evento";
 import { hitoRouter } from "~/server/api/routers/hito";
@@ -17,6 +18,7 @@ export const appRouter = createTRPCRouter({
   hito: hitoRouter,
   partner: partnerRouter,
   miembro: miembroRouter,
+  contacto: contactoRouter,
 });
 
 export type AppRouter = typeof appRouter;

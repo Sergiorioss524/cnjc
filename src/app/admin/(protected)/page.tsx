@@ -26,6 +26,11 @@ const sections = [
     label: "Miembros",
     body: "Directorio completo de miembros afiliados.",
   },
+  {
+    href: "/admin/mensajes",
+    label: "Mensajes",
+    body: "Mensajes enviados desde el formulario de contacto.",
+  },
 ];
 
 export default function AdminDashboard() {
